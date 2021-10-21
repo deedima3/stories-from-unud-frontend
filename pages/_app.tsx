@@ -3,6 +3,7 @@ import { AppProps } from "next/dist/shared/lib/router/router"
 import myTheme from "../components/Themes/theme"
 import AOS from 'aos'
 import "aos/dist/aos.css"
+import 'tailwindcss/tailwind.css'
 import React, { useEffect } from 'react'
 
 function MyApp({ Component, pageProps }: AppProps) {
