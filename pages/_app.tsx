@@ -4,6 +4,12 @@ import AOS from 'aos'
 import "aos/dist/aos.css"
 import 'tailwindcss/tailwind.css'
 import React, { useEffect } from 'react'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fab } from '@fortawesome/free-brands-svg-icons'
+import { faCheckSquare, faCoffee } from '@fortawesome/free-solid-svg-icons'
+import { faGithub } from '@fortawesome/free-brands-svg-icons'
+
+library.add(fab, faCheckSquare, faCoffee, faGithub)
 
 function MyApp({ Component, pageProps }: AppProps) {
   
