@@ -15,8 +15,8 @@ const Navbar = () => {
         return () => window.removeEventListener('scroll', scrollListener);
       }, []);
     return (
-        <div className="w-full flex-row flex justify-center">
-            <nav className={`flex justify-between flex-row w-4/5 h-20 items-center ${isNavbarStick ? "shadow-md" : ""}`}>
+        <nav className={`w-full flex-row flex justify-center sticky top-0 bg-white ${isNavbarStick ? "shadow-md" : ""}`}>
+            <div className="flex justify-between flex-row w-4/5 h-20 items-center">
             <div className="brand">
                 <img src="mainLogo.png" alt="Logo Stories from Unud" className="h-20"/>
             </div>
@@ -53,8 +53,8 @@ const Navbar = () => {
                     Login
                 </button>
             </div>
-        </nav>
         </div>
+        </nav>
     )
 }
 
