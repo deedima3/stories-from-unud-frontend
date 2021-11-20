@@ -1,4 +1,3 @@
-import { ChakraProvider } from "@chakra-ui/react"
 import { AppProps } from "next/dist/shared/lib/router/router"
 import myTheme from "../components/Themes/theme"
 import AOS from 'aos'
@@ -15,9 +14,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, [])
 
   return (
-    <ChakraProvider theme={myTheme}>
-      <Component {...pageProps} />
-    </ChakraProvider>
+    <Component {...pageProps} />
   )
 }
 
