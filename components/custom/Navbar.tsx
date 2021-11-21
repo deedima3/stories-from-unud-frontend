@@ -22,7 +22,7 @@ const Navbar = () => {
             </div>
             <div className="flex flex-row items-center h-10 w-1/3 justify-between">
                 <button className="bg-blue-0">
-                    <Link href="/home">
+                    <Link href="/">
                         <h2 className={`text-gray-400 hover:text-blue-500 font-bold ${router.pathname === "/" ? "text-blue-400" : "text-gray-400"}`}>
                             Home
                         </h2>
