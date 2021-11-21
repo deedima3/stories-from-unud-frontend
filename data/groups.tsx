@@ -24,11 +24,11 @@ export const Anggota = [
         "github" : "https://github.com/biancagsp"
     },
     {
-        "img" : "/dima.png",
-        "nama" : "Gede Sudimahendra",
-        "nim" : "2008561057",
-        "desc" : "Bocah penyuka kocheng yang wibu",
-        "ig" : "https://www.instagram.com/deedima3/?hl=en",
-        "github" : "https://github.com/deedima3?tab=repositories"
+        "img" : "/yanda.png",
+        "nama" : "Muhammad Arrysatrya Yusuf Putranda",
+        "nim" : "2008561097",
+        "desc" : "Kang foto keliling",
+        "ig" : "https://www.instagram.com/arrysatrya_",
+        "github" : "https://github.com/Regulusttt"
     },
 ]
