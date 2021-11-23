@@ -1,6 +1,5 @@
 import { extendTheme, ThemeConfig } from "@chakra-ui/react"
-import { TextStyles } from "./components/textStyle"
-import { ButtonStyles } from "./components/buttonStyle"
+import { TextStyles } from "./textStyle"
 import { Breakpoint } from "@chakra-ui/media-query"
 import { createBreakpoints } from "@chakra-ui/theme-tools"
 
@@ -32,7 +31,6 @@ const myTheme = extendTheme({
   },
   components: {
     Text : TextStyles,
-    Button :ButtonStyles
   },
 })
 

@@ -7,7 +7,7 @@ const Layout: React.FC<{}> = ({ children }) => {
         <>
             <Navbar/>
             <div className="w-full flex flex-col justify-center items-center">
-                <div className="flex items-center justify-center">
+                <div className="w-4/5 flex items-center justify-center">
                     {children} 
                 </div>
             </div>
