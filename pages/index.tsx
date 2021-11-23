@@ -1,6 +1,8 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
+import InfoBlock from '../components/custom/InfoBlock'
 import Navbar from '../components/custom/Navbar'
+import SectionTitle from '../components/custom/SectionTitle'
 import Layout from '../components/Layout/Layout'
 import { Info } from '../data/infodata'
 
@@ -25,7 +27,7 @@ const Index = () => {
           <SectionTitle title="Apa itu Stories From Unud" subtitle="Apa dan tentang website kami"/>
           <div className="flex flex-col items-center justify-center">
             {Info.map(({picture, title, description}) => {
-              return( <InfoBlock picture={picture} title={title} description={description}/>)
+              return( <InfoBlock picture={picture} title={title} desc={description}/>)
             })}
           </div>
         </section>
