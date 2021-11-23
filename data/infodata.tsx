@@ -5,12 +5,12 @@ export const Info = [
         "description" : "Tidak ada tracking nama dan identitas."
     },
     {
-        "picture" : "Frame2.png",
+        "picture" : "Frame 2.png",
         "title" : "Everyone",
         "description" : "Siapa saja dapat membuat membuat post"
     },
     {
-        "picture" : "Frame3.png",
+        "picture" : "Frame 3.png",
         "title" : "Chat",
         "description" : "Berkenalan dan berkomunikasi dengan sesama civitas UNUD"
     }
