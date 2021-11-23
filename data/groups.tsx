@@ -8,7 +8,7 @@ export const Anggota = [
         "github" : "https://github.com/deedima3?tab=repositories"
     },
     {
-        "img" : "/dima.png",
+        "img" : "/jeremi.png",
         "nama" : "Gede Sudimahendra",
         "nim" : "2008561057",
         "desc" : "Bocah penyuka kocheng yang wibu",

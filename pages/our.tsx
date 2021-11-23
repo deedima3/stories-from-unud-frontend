@@ -10,7 +10,7 @@ const Our = () => {
             <div className="flex flex-row flex-wrap justify-between w-4/5">
                 {Anggota.map(({img, nama, nim, desc, ig, github}) => {
                     return (
-                        <Groupinfo image={img} nama={nama} nim={nim} desc={desc} ig={ig} github={github}>
+                        <Groupinfo image={img} nama={nama} nim={nim} desc={desc} ig={ig} github={github} key={nama}>
                         </Groupinfo>
                     )
                 })}
