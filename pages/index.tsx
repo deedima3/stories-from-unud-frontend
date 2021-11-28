@@ -23,9 +23,9 @@ const Index = () => {
             <img src="/headerPhoto.png" alt="Foto Unud" />
           </div>
         </section>
-        <section className="flex flex-row justify-between items-center mt-10">
-          <SectionTitle title="Apa itu Stories From Unud" subtitle="Apa dan tentang website kami"/>
-          <div className="flex flex-col items-center justify-center">
+        <section className="flex flex-col justify-between items-center mt-10 w-full" data-aos="fade-up">
+          <SectionTitle title="Apa itu Stories From Unud?" subtitle="Apa dan tentang website kami"/>
+          <div className="flex flex-row items-center justify-between mt-10 w-full" data-aos="fade-up">
             {Info.map(({picture, title, description}) => {
               return( <InfoBlock picture={picture} title={title} desc={description}/>)
             })}
@@ -33,7 +33,9 @@ const Index = () => {
         </section>
         <section>
           <SectionTitle title="Top Article" subtitle="Cerita-cerita paling menarik"/>
-          div.grid-cols-3.md:grid-cols-1
+          <div className="grid-cols-3 md:grid-cols-1">
+            {}
+          </div>
         </section>
       </div>
     </Layout>

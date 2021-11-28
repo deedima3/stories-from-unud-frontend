@@ -11,7 +11,7 @@ const BlogCard = ({title, desc, picture, link} : BlogCardProps) => {
     var desc = desc.substring(0, 50);
     return (
         <div className="rounded-md bg-white-100 shadow-md">
-            <img src={link} alt={title} />
+            <img src={picture} alt={title} />
             <h2 className="font-Inter font-bold text-black">
                 {title}
             </h2>
