@@ -1,6 +1,13 @@
 import React from 'react'
 
-const BlogCard : React.FC<{ title : string, desc : string, picture : string, link : string}> = ({title, desc, picture, link}) => {
+interface BlogCardProps{
+    title : string;
+    picture : string;
+    desc : string;
+    link : string;
+}
+
+const BlogCard = ({title, desc, picture, link} : BlogCardProps) => {
     var desc = desc.substring(0, 50);
     return (
         <div className="rounded-md bg-white-100 shadow-md">

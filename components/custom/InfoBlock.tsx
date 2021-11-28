@@ -1,6 +1,12 @@
 import React from 'react'
 
-const InfoBlock : React.FC<{ picture : string, desc : string, title : string }> = ({picture, desc, title}) => {
+interface InfoBlockProps {
+    picture : string;
+    desc : string;
+    title : string;
+}
+
+const InfoBlock = ({picture, desc, title} : InfoBlockProps) => {
     return (
         <div className="block">
             <img src={picture} alt={picture} />

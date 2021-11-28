@@ -2,7 +2,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 import Link from "next/link"
 
-const Groupinfo: React.FC<{ image: string, nama: string, nim: string, desc: string, github : string, ig : string}> = ({ image, nama, nim, desc, github, ig }) => {
+interface GroupInfoProps {
+    image : string;
+    nama : string;
+    nim : string;
+    desc : string;
+    github : string;
+    ig : string;
+}
+
+const Groupinfo = ({ image, nama, nim, desc, github, ig } : GroupInfoProps) => {
     return (
         <div className="flex flex-col items-center w-1/2 mt-10">
             <img src={image} alt={nama} className="rounded-full shadow-md"/>
