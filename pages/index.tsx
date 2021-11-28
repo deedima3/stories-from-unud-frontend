@@ -31,7 +31,7 @@ const Index = () => {
             })}
           </div>
         </section>
-        <section>
+        <section className="mt-10">
           <SectionTitle title="Top Article" subtitle="Cerita-cerita paling menarik"/>
           <div className="grid-cols-3 md:grid-cols-1">
             {}
