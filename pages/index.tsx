@@ -1,12 +1,15 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
+import BlogArticleApi from '../apis/BlogArticleApi'
+import BlogCard from '../components/custom/BlogCard'
 import InfoBlock from '../components/custom/InfoBlock'
 import Navbar from '../components/custom/Navbar'
 import SectionTitle from '../components/custom/SectionTitle'
 import Layout from '../components/Layout/Layout'
 import { Info } from '../data/infodata'
 
-const Index = () => {
+const Index = ({data}) => {
+  console.log(data)
   return (
     <Layout>
       <div className="flex flex-col w-4/5">
@@ -31,15 +34,32 @@ const Index = () => {
             })}
           </div>
         </section>
-        <section className="mt-10">
+        <section className="mt-10" data-aos="fade-up">
           <SectionTitle title="Top Article" subtitle="Cerita-cerita paling menarik"/>
-          <div className="grid-cols-3 md:grid-cols-1">
-            {}
+          <div className="grid lg:grid-cols-3 gap-8 md:grid-cols-1 mt-10" data-aos="fade-up">
+            {data && data.map(({title, imageUrl, article}) => {
+              return (<BlogCard title={title} picture={imageUrl} desc={article} link="/"/>)
+            })}
           </div>
         </section>
       </div>
     </Layout>
   )
+
 }
+
+export async function getStaticProps(){
+  const response = await BlogArticleApi.getAllArticle()
+  if(response){
+    return {
+      props : {data : response},
+      revalidate : 10
+    }
+  }
+}
+
+
+
+
 
 export default Index

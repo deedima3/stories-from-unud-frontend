@@ -18,6 +18,8 @@
     "@fortawesome/react-fontawesome": "^0.1.16",
     "@types/aos": "^3.0.4",
     "aos": "^2.3.4",
+    "axios": "^0.24.0",
+    "dotenv": "^10.0.0",
     "fontawesome": "^5.6.3",
     "framer-motion": "^4",
     "install": "^0.13.0",
