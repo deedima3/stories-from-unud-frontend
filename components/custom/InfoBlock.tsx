@@ -8,7 +8,7 @@ interface InfoBlockProps {
 
 const InfoBlock = ({picture, desc, title} : InfoBlockProps) => {
     return (
-        <div className="block text-center">
+        <div className="block text-center mt-10 md:ml-5 lg:md-0">
             <img src={picture} alt={picture} />
             <h3 className="text-blue-500 font-Inter text-3xl font-bold">
                 {title}

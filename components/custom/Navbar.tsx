@@ -19,7 +19,7 @@ const Navbar = () => {
           
       })
     return (
-        <nav className={`bg-white w-full flex-row flex justify-center sticky top-0 z-50 ${isNavbarStick ? "shadow-md" : ""}`}>
+        <nav className={`bg-white w-screen flex-row flex justify-center sticky top-0 z-50 ${isNavbarStick ? "shadow-md" : ""}`}>
             <div className="flex justify-between flex-row w-4/5 h-20 items-center">
             <div className="brand max-w-content">
                 <img src="mainLogo.png" alt="Logo Stories from Unud" className="h-20"/>
@@ -30,7 +30,7 @@ const Navbar = () => {
                 <NavbarLink text="Our Group" path="/our"/>
                 <NavbarLink text="New Post" path="/new"/>
                 <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-10">
-                    Login
+                    <Link href="/login">Login</Link>
                 </button>
             </div>
         </div>

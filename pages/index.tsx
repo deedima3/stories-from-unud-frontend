@@ -9,7 +9,7 @@ import Layout from '../components/Layout/Layout'
 import { Info } from '../data/infodata'
 
 const Index = ({data}) => {
-  console.log(data)
+  
   return (
     <Layout>
       <div className="flex flex-col w-4/5">
@@ -28,7 +28,7 @@ const Index = ({data}) => {
         </section>
         <section className="flex flex-col justify-between items-center mt-10 w-full" data-aos="fade-up">
           <SectionTitle title="Apa itu Stories From Unud?" subtitle="Apa dan tentang website kami"/>
-          <div className="flex flex-row items-center justify-between mt-10 w-full" data-aos="fade-up">
+          <div className="flex sm:flex-row items-center justify-between mt-10 w-full flex-col" data-aos="fade-up">
             {Info.map(({picture, title, description}) => {
               return( <InfoBlock picture={picture} title={title} desc={description}/>)
             })}

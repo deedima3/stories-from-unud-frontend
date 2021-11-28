@@ -11,7 +11,7 @@ const NavbarLink = ({path, text} : NavbarLinkProps) => {
     const router = useRouter();
     return (
         <button className="bg-blue-0 ml-10">
-            <Link as="div" href={path}>
+            <Link href={path}>
                 <div className="flex flex-col items-center">
                     <h2 className={`text-gray-400 hover:text-blue-500 font-bold ${router.pathname === path ? "text-blue-400" : "text-gray-400"}`}>
                         {text}
