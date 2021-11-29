@@ -24,17 +24,30 @@ const Navbar = () => {
             <div className="brand max-w-content">
                 <img src="mainLogo.png" alt="Logo Stories from Unud" className="h-20"/>
             </div>
-            <div className="flex flex-row items-center h-10 w-max justify-between flex-shrink-0">
-                <NavbarLink text="Home" path="/"/>
-                <NavbarLink text="Blog Post" path="/blog"/>
-                <NavbarLink text="Our Group" path="/our"/>
-                <NavbarLink text="New Post" path="/new"/>
-                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-10">
-                    <Link href="/login">Login</Link>
-                </button>
-            </div>
+            {isHamburger ? <NavbarDesktop/> : <NavbarMobile/>}
         </div>
         </nav>
+    )
+}
+
+const NavbarDesktop = () => {
+    return(
+        <div className="flex flex-row items-center h-10 w-max justify-between flex-shrink-0">
+            <NavbarLink text="Home" path="/"/>
+            <NavbarLink text="Blog Post" path="/blog"/>
+            <NavbarLink text="Our Group" path="/our"/>
+            <NavbarLink text="New Post" path="/new"/>
+            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-10">
+                <Link href="/login">Login</Link>
+            </button>
+        </div>
+    )
+}
+
+const NavbarMobile = () => {
+    const [isOpened, setOpened] = useState(false)
+    return(
+
     )
 }
 
