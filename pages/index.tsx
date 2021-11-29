@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
+import { ArrayArticle, Article } from '../apis/ArticleInterface'
 import BlogArticleApi from '../apis/BlogArticleApi'
 import BlogCard from '../components/custom/BlogCard'
 import InfoBlock from '../components/custom/InfoBlock'
@@ -8,7 +9,7 @@ import SectionTitle from '../components/custom/SectionTitle'
 import Layout from '../components/Layout/Layout'
 import { Info } from '../data/infodata'
 
-const Index = ({data}) => {
+const Index = ({ data } : ArrayArticle) => {
   
   return (
     <Layout>
@@ -37,7 +38,7 @@ const Index = ({data}) => {
         <section className="mt-10" data-aos="fade-up">
           <SectionTitle title="Top Article" subtitle="Cerita-cerita paling menarik"/>
           <div className="grid lg:grid-cols-3 gap-8 md:grid-cols-1 mt-10" data-aos="fade-up">
-            {data && data.map(({title, imageUrl, article}) => {
+            {data && data.map(({title, imageUrl, article} : Article) => {
               return (<BlogCard title={title} picture={imageUrl} desc={article} link="/"/>)
             })}
           </div>
