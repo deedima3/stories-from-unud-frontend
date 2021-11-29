@@ -20,3 +20,7 @@ export interface Article{
   author : string;
   visitor : number;
 }
+
+export interface ArrayArticle {
+  data : Article[]
+}
