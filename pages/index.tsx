@@ -1,12 +1,16 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
+import { ArrayArticle, Article } from '../apis/ArticleInterface'
+import BlogArticleApi from '../apis/BlogArticleApi'
+import BlogCard from '../components/custom/BlogCard'
 import InfoBlock from '../components/custom/InfoBlock'
 import Navbar from '../components/custom/Navbar'
 import SectionTitle from '../components/custom/SectionTitle'
 import Layout from '../components/Layout/Layout'
 import { Info } from '../data/infodata'
 
-const Index = () => {
+const Index = ({ data } : ArrayArticle) => {
+  
   return (
     <Layout>
       <div className="flex flex-col w-4/5">
@@ -23,21 +27,40 @@ const Index = () => {
             <img src="/headerPhoto.png" alt="Foto Unud" />
           </div>
         </section>
-        <section className="flex flex-row justify-between items-center mt-10">
-          <SectionTitle title="Apa itu Stories From Unud" subtitle="Apa dan tentang website kami"/>
-          <div className="flex flex-col items-center justify-center">
+        <section className="flex flex-col justify-between items-center mt-10 w-full" data-aos="fade-up">
+          <SectionTitle title="Apa itu Stories From Unud?" subtitle="Apa dan tentang website kami"/>
+          <div className="flex sm:flex-row items-center justify-between mt-10 w-full flex-col" data-aos="fade-up">
             {Info.map(({picture, title, description}) => {
               return( <InfoBlock picture={picture} title={title} desc={description}/>)
             })}
           </div>
         </section>
-        <section>
+        <section className="mt-10" data-aos="fade-up">
           <SectionTitle title="Top Article" subtitle="Cerita-cerita paling menarik"/>
-          div.grid-cols-3.md:grid-cols-1
+          <div className="grid lg:grid-cols-3 gap-8 md:grid-cols-1 mt-10" data-aos="fade-up">
+            {data && data.map(({title, imageUrl, article} : Article) => {
+              return (<BlogCard title={title} picture={imageUrl} desc={article} link="/"/>)
+            })}
+          </div>
         </section>
       </div>
     </Layout>
   )
+
 }
+
+export async function getStaticProps(){
+  const response = await BlogArticleApi.getAllArticle()
+  if(response){
+    return {
+      props : {data : response},
+      revalidate : 10
+    }
+  }
+}
+
+
+
+
 
 export default Index
