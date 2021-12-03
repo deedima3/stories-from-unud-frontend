@@ -13,7 +13,7 @@ interface GroupInfoProps {
 
 const Groupinfo = ({ image, nama, nim, desc, github, ig } : GroupInfoProps) => {
     return (
-        <div className="flex flex-col items-center w-1/2 mt-10" data-aos="fade-up">
+        <div className="flex flex-col items-center w-1/2 mt-10 text-center" data-aos="fade-up">
             <img src={image} alt={nama} className="rounded-full shadow-md"/>
             <h1 className="font-bold text-black text-3xl">
                 {nama}
