@@ -36,6 +36,7 @@ const Navbar = () => {
 const AdminNav = () => {
     const {user, setUser} = useContext(UserContext)
 
+    //Send Post Request to api routes next as a proxy for backend
     const handleLogout = () => {
         fetch('api/logout', {
             method : "POST",

@@ -9,6 +9,7 @@ import { UserData } from '../apis/UserData'
 const Login = () => {
     var {user, setUser} = useContext(UserContext)
 
+    //Using form hooks in react to create form, new errors are in formState
     const {register, handleSubmit, setError, formState : { errors }} = useForm()
 
     const pushData = async (data : UserData) => {
