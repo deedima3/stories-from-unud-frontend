@@ -8,22 +8,12 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import { faCheckSquare, faCoffee, faCommentAlt } from '@fortawesome/free-solid-svg-icons'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
+import UserProvider from "../lib/context/UserProvider"
 
 library.add(fab, faCheckSquare, faCoffee, faGithub, faCommentAlt)
 
-export interface UserContext {
-  user: string;
-  setUser: React.Dispatch<React.SetStateAction<string>>;
-}
-
-export const UserContext = createContext<UserContext>({
-  user : "",
-  setUser : () => {}
-})
-
 function MyApp({ Component, pageProps }: AppProps) {
 
-  const [user, setUser] = useState("")
   
   useEffect(() => {
     AOS.init({ duration: 2000 });
@@ -32,9 +22,10 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, [])
 
   return (
-    <UserContext.Provider value={{user, setUser}}>
+    <UserProvider>
       <Component {...pageProps} />
-    </UserContext.Provider>
+    </UserProvider>
+      
   )
 }
 

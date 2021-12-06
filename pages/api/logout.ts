@@ -4,18 +4,18 @@ import { UserData } from '../../apis/UserData'
 import UserApi from "../../apis/UserApi"
 import Router from 'next/router'
 
-export default async ({headers : { sessionID }} : NextApiRequest, res : NextApiResponse) => {
-    if(Array.isArray(sessionID)){
-        res.status(400).json("Session ID Salah")
+export default async ( req : NextApiRequest, res : NextApiResponse) => {
+    if(Array.isArray(req.body.sessionID)){
+        res.status(400).json({"message" : "SID Salah"})
     }
     else{
-        const response = await UserApi.UserLogout(sessionID!)
-        if(response){
-            res.status(200).json("Sudah Ter Logout")
-            Router.push("/")
+        const body = JSON.parse(req.body)
+        const response = await UserApi.UserLogout(body.sessionID!)
+        if(response == true){
+            res.status(200).json({"message" : "Sudah Ter Logout"})
         }
         else{
-            res.status(400).json("Backend API Salah")
+            res.status(400).json({"message" : "Backend API Salah"})
         }
     }
 }

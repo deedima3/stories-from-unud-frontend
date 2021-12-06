@@ -2,8 +2,8 @@ import React, { useContext, useEffect, useState } from 'react'
 import Link from "next/link"
 import router, { useRouter } from 'next/router'
 import NavbarLink from './NavbarLink';
-import { UserContext } from '../../pages/_app';
 import Router from 'next/router'
+import { UserContext } from '../../lib/context/UserProvider';
 
 const Navbar = () => {
     const [isNavbarStick, setIsNavbarStick] = useState(false);
@@ -33,22 +33,21 @@ const Navbar = () => {
     )
 }
 
-const AdminNav = () => {
-    const {user, setUser} = useContext(UserContext)
+const AdminNav = () => { 
+    const {user, setUser, removeUser} = useContext(UserContext)
+    console.log(user)
 
     //Send Post Request to api routes next as a proxy for backend
     const handleLogout = () => {
         fetch('api/logout', {
             method : "POST",
-            headers : {
-                'sessionID' : user
-            }
+            body : JSON.stringify({
+                "sessionID" : user
+            })
         })
-        .then(response => response.json())
-        .then(data => {
-            if(data){
-                setUser(user => '')
-                Router.push("/")
+        .then(response => {
+            if(response.status == 200){
+                removeUser()
             }
         })
     }
@@ -56,7 +55,7 @@ const AdminNav = () => {
     return (
         <>
             <NavbarLink text="Validator" path="/validator"/>
-            <Link href="/logout">
+            <Link href="/">
                 <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-10" onClick={handleLogout}>
                     Logout
                 </button>
@@ -76,7 +75,7 @@ const UserNav = () => {
 }
 
 const NavbarDesktop = () => {
-    const {user, setUser} = useContext(UserContext)
+    var {user, setUser} = useContext(UserContext)
 
     return(
         <div className="flex flex-row items-center h-10 w-max justify-between flex-shrink-0">
@@ -91,7 +90,7 @@ const NavbarDesktop = () => {
 
 const NavbarMobile = () => {
     const [isOpened, setOpened] = useState(false)
-    const {user, setUser} = useContext(UserContext)
+    var {user, setUser} = useContext(UserContext)
 
     return(
         <div className="flex flex-row items-center h-10 w-max justify-between flex-shrink-0">

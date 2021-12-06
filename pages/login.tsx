@@ -1,13 +1,13 @@
 import React, { useContext, useState } from 'react'
 import SectionTitle from '../components/custom/SectionTitle'
 import Layout from '../components/Layout/Layout'
-import { UserContext } from './_app'
 import Router from 'next/router'
 import { useForm } from 'react-hook-form'
 import { UserData } from '../apis/UserData'
+import { UserContext } from '../lib/context/UserProvider'
 
 const Login = () => {
-    var {user, setUser} = useContext(UserContext)
+    const {user, setUser, removeUser} = useContext(UserContext)
 
     //Using form hooks in react to create form, new errors are in formState
     const {register, handleSubmit, setError, formState : { errors }} = useForm()
@@ -18,7 +18,15 @@ const Login = () => {
             body : JSON.stringify(data)
         })
         .then(response => response.json())
-        .then(data => setUser(user = data.sessionId))
+        .then(response => {
+            console.log(response)
+            if(response.sessionId.message){
+                alert(response.sessionId.message)
+            }else{
+                setUser(response.sessionId)
+                Router.push("/")
+            }
+        })
     }
 
     if(user){
