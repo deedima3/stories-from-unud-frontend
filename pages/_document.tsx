@@ -9,8 +9,7 @@ class MyDocument extends Document {
   render() {
     return (
       <Html>
-        <Head >
-            <title>Stories From Udayana</title>
+        <Head>
             <link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon-57x57.png"/>
             <link rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-icon-60x60.png"/>
             <link rel="apple-touch-icon" sizes="72x72" href="/favicon/apple-icon-72x72.png"/>
@@ -26,12 +25,13 @@ class MyDocument extends Document {
             <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/>
             <link rel="manifest" href="/favicon/manifest.json"/>
             <meta name="msapplication-TileColor" content="#ffffff"/>
-            <meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png"/>
+            <meta name="msappliscation-TileImage" content="/favicon/ms-icon-144x144.png"/>
             <meta name="theme-color" content="#ffffff"/> 
         </Head>
         <body>
           <Main />
           <NextScript />
+          <div id="modal-root"></div>
         </body>
       </Html>
     )

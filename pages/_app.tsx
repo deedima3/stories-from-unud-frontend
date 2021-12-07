@@ -9,6 +9,7 @@ import { fab } from '@fortawesome/free-brands-svg-icons'
 import { faCheckSquare, faCoffee, faCommentAlt } from '@fortawesome/free-solid-svg-icons'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import UserProvider from "../lib/context/UserProvider"
+import Head from 'next/head'
 
 library.add(fab, faCheckSquare, faCoffee, faGithub, faCommentAlt)
 
@@ -23,6 +24,9 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <UserProvider>
+      <Head >
+            <title>Stories From Udayana</title>
+        </Head>
       <Component {...pageProps} />
     </UserProvider>
       
