@@ -1,10 +1,10 @@
+import { faComment } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 import { ArrayArticle, Article } from '../apis/ArticleInterface'
 import BlogArticleApi from '../apis/BlogArticleApi'
 import BlogCard from '../components/custom/BlogCard'
 import InfoBlock from '../components/custom/InfoBlock'
-import Navbar from '../components/custom/Navbar'
 import SectionTitle from '../components/custom/SectionTitle'
 import Layout from '../components/Layout/Layout'
 import { Info } from '../data/infodata'
@@ -20,7 +20,7 @@ const Index = ({ data } : ArrayArticle) => {
             <h6 className="text-gray-300 font-bold text-md font-Inter">Ceritakan apa saja tentang perkuliahan di Udayana</h6>
             <div className="">
               <button className="mt-2 bg-blue-700 hover:bg-blue-800 text-white font-bold p-3 rounded-full text-sm flex flex-row items-center">
-                <FontAwesomeIcon icon={["far", "comment"]} size="2x"/>
+                <FontAwesomeIcon icon={faComment} size="1x"/>
                   <p className="ml-2 font-Inter">Tulis Cerita Anda</p>
               </button>
             </div>

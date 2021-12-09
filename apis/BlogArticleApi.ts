@@ -6,7 +6,7 @@ export interface ApiErrorResponse {
     message: string;
 }
 
-const config = {
+export const config = {
     'token' : envConfig.ApiToken
 }
 
@@ -17,7 +17,7 @@ export default {
     
     async getAllArticle(){
         try{
-            const response = await axios.get('/', {headers : config})
+            const response = await axios.get('blog-post/', {headers : config})
             return response.data
         }catch(e){
             console.log(e)
@@ -26,10 +26,10 @@ export default {
     },
 
     async searchArticle(searchKeyword : string, sortBy : string){
-        let response: AxiosResponse | AxiosError<ApiErrorResponse>;
+        let response : AxiosResponse | AxiosError<ApiErrorResponse>;
     },
 
     async createArticle(){
-        let response: AxiosResponse | AxiosError<ApiErrorResponse>;
+        let response : AxiosResponse | AxiosError<ApiErrorResponse>;
     }
 }
