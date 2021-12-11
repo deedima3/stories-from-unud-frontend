@@ -1,23 +1,33 @@
-import Editor from 'draft-js-wysiwyg/types/components/Editor/Editor'
 import React, { useEffect, useState } from 'react'
-import { useDebounce, useLocalStorage } from 'react-use'
+import { useDebounce } from 'react-use'
+import { useLocalStorage } from '../lib/context/hooks/useLocalStorage'
 import Layout from '../components/Layout/Layout'
+import createImagePlugin from '@draft-js-plugins/image';
+import ArticleFields from '../components/custom/articles/ArticleFields';
+import { EditorState, convertFromRaw } from 'draft-js';
+import { useRouter } from 'next/router'
 
 const New = () => {
-
-    const [editorState, setEditorState] = useState("")
     
-    const [article, setArticle, removeArticle] = useLocalStorage("")
+   const [article, setArticle] = useState<EditorState>(
+    EditorState.createEmpty()
+  )
 
     const submitArticle = () => {
-        removeArticle()
+
     }
 
-    useDebounce(() => setArticle(editorState), 1000, [editorState])
+    const imagePlugin = createImagePlugin();
+    const plugins = [imagePlugin]
 
     return (
         <Layout>
-            <Editor editorState={editorState} onChange={setEditorState} />;
+            <ArticleFields
+                className="mt-8 w-full border-2 border-blue-500"
+                article={article}
+                setArticle={setArticle}
+                plugin={plugins}
+            />
         </Layout>
     )
 }

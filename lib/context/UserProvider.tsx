@@ -15,7 +15,7 @@ export const UserContext = createContext<UserContext>({
 
 const UserProvider : React.FC = ({children}) => {
 
-    const {user, setUser, removeUser} = useLocalStorage(null)
+    const [user, setUser, removeUser] = useLocalStorage("user", null)
 
     return (
         <UserContext.Provider value={{user, setUser, removeUser}}>
