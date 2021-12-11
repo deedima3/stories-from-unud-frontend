@@ -1,8 +1,8 @@
 import React, { createContext, useEffect, useState } from 'react'
-import { useLocalStorage } from 'react-use'
+import { useLocalStorage } from './hooks/useLocalStorage'
 
 export interface UserContext {
-    user: string | undefined;
+    user: string | null;
     setUser: (c : string) => void
     removeUser: () => void
 }
@@ -15,8 +15,8 @@ export const UserContext = createContext<UserContext>({
 
 const UserProvider : React.FC = ({children}) => {
 
-    const [user, setUser, removeUser] = useLocalStorage("user", "")
-      
+    const {user, setUser, removeUser} = useLocalStorage(null)
+
     return (
         <UserContext.Provider value={{user, setUser, removeUser}}>
             {children}

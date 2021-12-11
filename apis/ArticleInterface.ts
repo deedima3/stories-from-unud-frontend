@@ -1,5 +1,4 @@
 import { AxiosResponse, AxiosError } from 'axios';
-
 export const isAxiosSuccessResponse = (
   testObj: any
 ): testObj is AxiosResponse => {
