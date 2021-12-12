@@ -7,6 +7,10 @@ import {
     DraftHandleValue,
     ContentBlock,
   } from 'draft-js'
+import '@draft-js-plugins/static-toolbar/lib/plugin.css';
+import createToolbarPlugin, { Separator } from '@draft-js-plugins/static-toolbar';
+import createUndoPlugin from '@draft-js-plugins/undo';
+import '@draft-js-plugins/undo/lib/plugin.css';
 
 interface ArticleProps{
     className? : string;
@@ -16,7 +20,33 @@ interface ArticleProps{
     readOnly? : boolean;
 }
 
+interface HeadlinePickerProps{
+    artikel : EditorState;
+    setArticle : React.Dispatch<React.SetStateAction<EditorState>>;
+}
+
 const ArticleFields = ({className, article, setArticle, plugin, readOnly=false} : ArticleProps) => {
+
+    const typeMap : { [key : string ] : string} = {
+        "unstyled": 'text-typeface font-Inter text-sm',
+        "header-two": 'font-Inter text-2xl font-bold',
+        "header-three": 'font-Inter text-xl font-bold',
+        "header-four": 'font-Inter text-lg font-bold',
+        "STRIKETHROUGH" : 'font-Inter text-sm line-through'
+      };
+      
+      const handleStyling = (contentBlock: ContentBlock) : string => {
+        const type = contentBlock.getType();
+        if (type === 'atomic') {
+          return 'content-img-container';
+        }
+        if (typeMap[type]!) {
+          return typeMap[type]!;
+        }
+        else{
+            return "unstyled"
+        }
+      }
 
     const editorRef = useRef<Editor>(null);
 
@@ -32,16 +62,23 @@ const ArticleFields = ({className, article, setArticle, plugin, readOnly=false} 
         }
         return 'not-handled';
     };
+    
+    const staticToolbarPlugin = createToolbarPlugin();
+    const { Toolbar } = staticToolbarPlugin;
+    const undoPlugin = createUndoPlugin();
+    const { UndoButton, RedoButton } = undoPlugin;
+    (plugin!).push(staticToolbarPlugin, undoPlugin)
   
     return (
         <section className={`${className}`}>
-            <article className="max-w-2xl mx-auto">
+            <article className="mx-auto border-2 shadow-md my-5 p-10 max-w-6xl">
                 <Editor
-                    editorState={article} 
+                    editorState={article}
                     onChange={setArticle}
                     handleKeyCommand={handleKeyCommand}
                     ref={editorRef}
                     plugins={plugin}
+                    blockStyleFn={handleStyling}
                     readOnly={readOnly}
                     />
             </article>
