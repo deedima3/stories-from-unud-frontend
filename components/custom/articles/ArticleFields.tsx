@@ -29,9 +29,9 @@ const ArticleFields = ({className, article, setArticle, plugin, readOnly=false} 
 
     const typeMap : { [key : string ] : string} = {
         "unstyled": 'text-typeface font-Inter text-sm',
-        "header-two": 'font-Inter text-2xl font-bold',
-        "header-three": 'font-Inter text-xl font-bold',
-        "header-four": 'font-Inter text-lg font-bold',
+        "header-one": 'font-Inter text-2xl font-bold',
+        "header-two": 'font-Inter text-xl font-bold',
+        "header-three": 'font-Inter text-lg font-bold',
         "STRIKETHROUGH" : 'font-Inter text-sm line-through'
       };
       

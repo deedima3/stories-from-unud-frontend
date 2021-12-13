@@ -14,7 +14,7 @@ const DateAndAuthor = ({date, author, readOnly=false, setAuthor} : DateAndAuthor
     return (
         <div className="text-bold font-Inter text-md text-gray-500 w-full mt-6 flex">
             <p>Date Posted :{date.getDate() + "-" + date.getMonth() + "-" + date.getFullYear()},</p>
-            <p>Created By:</p> {readOnly ? `Created By: ${author}` : <input onChange={handleChange}/>}
+            <p>Created By:</p> {readOnly ? `Created By: ${author}` : <input onChange={handleChange} placeholder="Penulis Artikel"/>}
         </div>
     )
 }

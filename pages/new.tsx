@@ -4,10 +4,11 @@ import { useLocalStorage } from '../lib/context/hooks/useLocalStorage'
 import Layout from '../components/Layout/Layout'
 import createImagePlugin from '@draft-js-plugins/image';
 import ArticleFields from '../components/custom/articles/ArticleFields';
-import { EditorState, convertFromRaw } from 'draft-js';
+import { EditorState, convertFromRaw, RichUtils } from 'draft-js';
 import { useRouter } from 'next/router'
 import { useForm } from 'react-hook-form';
 import ArticleTitle from '../components/custom/articles/ArticleTitle';
+import ArticleToolbars from '../components/custom/articles/ArticleToolbars';
 
 
 const New = () => {
@@ -17,6 +18,7 @@ const New = () => {
   )
     const [title, setTitle] = useState("")
     const [author, setAuthor] = useState("")
+    const [image, setImage] = useState("")
 
     const {register, handleSubmit, setError, reset, formState : { errors }} = useForm()
 
@@ -26,22 +28,57 @@ const New = () => {
 
     const imagePlugin = createImagePlugin();
     const plugins = [imagePlugin]
+
+    const handleRichText = (inlineStyle: string) => (
+        e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>
+      ) => {
+        e.preventDefault();
+        setArticle(RichUtils.toggleInlineStyle(article, inlineStyle));
+      };
+    
+      const handleImageClick = (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => {
+        e.preventDefault();
+        const urlValue = window.prompt('Paste Image Link');
+        console.log(urlValue);
+        if (urlValue === ' ' || urlValue === '') return;
+        setArticle(imagePlugin.addImage(article, urlValue!, {}));
+      };
+    
+      const handleBlockType = (bType: string) => (
+        e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>
+      ) => {
+        e.preventDefault();
+        setArticle(RichUtils.toggleBlockType(article, bType));
+      };
+
+      const handleSave = (e : React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => {
+          e.preventDefault()
+
+      }
     
     return (
         <Layout>
             <ArticleTitle 
             title={"Artikel Pertama"} 
             setTitle={setTitle} 
-            image="https://scitechdaily.com/images/New-Hubble-Image-Shows-Part-of-the-Large-Magellanic-Cloud.jpg" 
+            image={image}
+            setImage={setImage}
             className={'mt-8 w-full flex flex-col items-center'} 
             author={author}
             setAuthor={setAuthor}/>
-            <ArticleFields
-                className="mt-8 w-full"
-                article={article}
-                setArticle={setArticle}
-                plugin={plugins}
-            />
+            <div className="flex w-full justify-center">
+                <ArticleToolbars 
+                    richTextHandler={handleRichText} 
+                    blockTypeHandler={handleBlockType} 
+                    onImageClick={handleImageClick}
+                />
+                <ArticleFields
+                    className="mt-8 w-full"
+                    article={article}
+                    setArticle={setArticle}
+                    plugin={plugins}
+                />
+            </div>
         </Layout>
     )
 }

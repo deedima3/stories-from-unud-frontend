@@ -6,8 +6,8 @@ const Layout: React.FC<{}> = ({ children }) => {
     return (
         <>
             <Navbar/>
-            <div className="w-full flex flex-col justify-center items-center">
-                <div className="md:w-4/5 w-3/5 flex flex-col items-center justify-center">
+            <div className="w-full flex flex-col justify-center items-center min-h-full">
+                <div className="md:w-4/5 w-3/5 flex flex-col items-center min-h-screen">
                     {children} 
                 </div>
             </div>
