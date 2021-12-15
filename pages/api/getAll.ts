@@ -12,8 +12,8 @@ export default async (req : NextApiRequest, res : NextApiResponse) => {
         console.log(req.body)
         try{
             const response = await BlogArticleApi.getAllArticle()
-            if(response.data){
-                res.status(200).json(response.data)
+            if(response){
+                res.status(200).json(response)
             }
         }
         catch(e){

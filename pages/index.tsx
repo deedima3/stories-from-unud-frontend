@@ -44,7 +44,7 @@ const Index = ({ data } : ArrayArticle) => {
           <SectionTitle title="Top Article" subtitle="Cerita-cerita paling menarik"/>
           <div className="grid lg:grid-cols-3 gap-8 md:grid-cols-1 mt-10" data-aos="fade-up">
             {data && data.map(({title, imageUrl, article, HashNumber} : Article) => {
-              return (<BlogCard title={title} picture={imageUrl} desc={article} link="/" HashNumber={HashNumber}/>)
+              return (<BlogCard title={title} picture={imageUrl} desc={article} link="/" HashNumber={HashNumber} key={HashNumber}/>)
             })}
           </div>
         </section>
