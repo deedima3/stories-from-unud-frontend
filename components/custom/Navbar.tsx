@@ -25,7 +25,7 @@ const Navbar = () => {
         <nav className={`bg-white w-screen flex-row flex justify-center sticky top-0 z-50 ${isNavbarStick ? "shadow-md" : ""}`}>
             <div className="flex justify-between flex-row w-4/5 h-20 items-center">
             <div className="brand max-w-content">
-                <img src="mainLogo.png" alt="Logo Stories from Unud" className="h-20"/>
+                <img src="/mainLogo.png" alt="Logo Stories from Unud" className="h-20"/>
             </div>
             {isHamburger ? <NavbarDesktop/> : <NavbarMobile/>}
         </div>

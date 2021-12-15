@@ -6,19 +6,21 @@ import DateAndAuthor from './DateAndAuthor'
 
 interface ArticleTitleProps{
     title : string;
-    setTitle : React.Dispatch<React.SetStateAction<string>>
+    setTitle? : React.Dispatch<React.SetStateAction<string>>
     image : string;
-    setImage : React.Dispatch<React.SetStateAction<string>>
+    setImage? : React.Dispatch<React.SetStateAction<string>>
     className : string
     readOnly? : boolean
-    setAuthor : React.Dispatch<React.SetStateAction<string>>
+    setAuthor? : React.Dispatch<React.SetStateAction<string>>
     author : string;
-    date? : Date;
+    date? : string;
 }
 
 const ArticleTitle = ({image, title, className, readOnly=false, setTitle, setAuthor, date, author, setImage} : ArticleTitleProps) => {
-    const handleChange = (text : any) => {
-        setTitle(text.value)
+    const handleChange = (e : any) => {
+       if(setTitle){
+        setTitle(e.target.value)
+       }
     }
 
     const getDate = () => {
@@ -35,11 +37,12 @@ const ArticleTitle = ({image, title, className, readOnly=false, setTitle, setAut
         const formData = new FormData()
         formData.append("key", api_key)
         formData.append("image", file)
-        console.log(formData)
         try {
             axios.post(baseURL, formData)
             .then((response) => {
-                setImage(response.data.data.image.url)
+                if(setImage){
+                    setImage(response.data.data.image.url)
+                }
             })
         }
         catch(e){
@@ -78,7 +81,7 @@ const ArticleTitle = ({image, title, className, readOnly=false, setTitle, setAut
                 </textarea>
             }
             <DateAndAuthor date={date ? date : getDate()} author={author} setAuthor={setAuthor} readOnly={readOnly} />
-            {image ? <div className="border-2 border-blue-500 mt-12 w-full rounded-2xl overflow-hidden max-h-80 content-center">
+            {image ? <div className="mt-12 w-full rounded-2xl overflow-hidden max-h-80 content-center">
                 <img className="object-fill w-full" src={image} alt={image} />
             </div>
             : ""}

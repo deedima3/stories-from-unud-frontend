@@ -7,7 +7,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     onClick? : (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void;
 }
 
-const OriginalButton = ({disabled = false, variant, children, onClick, type} : ButtonProps) => {
+const OriginalButton = ({disabled = false, variant, children, onClick, type="button"} : ButtonProps) => {
     return (
         <button
             className={`p-5 font-Inter rounded-md font-bold text-sm ${disabled ? "disabled:opacity-50" : ""} 

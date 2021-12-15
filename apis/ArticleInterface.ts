@@ -12,6 +12,7 @@ export const isAxiosErrorResponse = (testObj: any): testObj is AxiosError => {
 };
 
 export interface Article{
+  HashNumber : number;
   title : string;
   imageUrl : string;
   article : string;

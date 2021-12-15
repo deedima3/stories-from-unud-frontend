@@ -4,11 +4,12 @@ import { useLocalStorage } from '../lib/context/hooks/useLocalStorage'
 import Layout from '../components/Layout/Layout'
 import createImagePlugin from '@draft-js-plugins/image';
 import ArticleFields from '../components/custom/articles/ArticleFields';
-import { EditorState, convertFromRaw, RichUtils } from 'draft-js';
+import { EditorState, convertFromRaw, RichUtils, convertToRaw} from 'draft-js';
 import { useRouter } from 'next/router'
 import { useForm } from 'react-hook-form';
 import ArticleTitle from '../components/custom/articles/ArticleTitle';
 import ArticleToolbars from '../components/custom/articles/ArticleToolbars';
+import axios from 'axios';
 
 
 const New = () => {
@@ -53,7 +54,21 @@ const New = () => {
 
       const handleSave = (e : React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => {
           e.preventDefault()
-
+          const data = {
+            "title" : title,
+            "imageUpload" : image,
+            "article" : article.getCurrentContent().getPlainText(),
+            "author" : author
+          }
+          try {
+            axios.post('api/new', data)
+            .then((response) => {
+                console.log(response)
+            })
+          }
+          catch(e){
+              console.log(e)
+          }
       }
     
     return (
@@ -71,6 +86,7 @@ const New = () => {
                     richTextHandler={handleRichText} 
                     blockTypeHandler={handleBlockType} 
                     onImageClick={handleImageClick}
+                    saveHandler={handleSave}
                 />
                 <ArticleFields
                     className="mt-8 w-full"

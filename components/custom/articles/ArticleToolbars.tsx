@@ -13,9 +13,10 @@ interface ArticleToolbarsProps{
     ) => (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void;
       
     onImageClick: (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void;
+    saveHandler: (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void;
 }
 
-const ArticleToolbars = ({richTextHandler, blockTypeHandler, onImageClick} : ArticleToolbarsProps) => {
+const ArticleToolbars = ({richTextHandler, blockTypeHandler, onImageClick, saveHandler} : ArticleToolbarsProps) => {
     return (
        <div className="">
             <div className="flex flex-col shadow-md sticky z-50 top-40">
@@ -43,7 +44,7 @@ const ArticleToolbars = ({richTextHandler, blockTypeHandler, onImageClick} : Art
                 <OriginalButton variant={'outlined'} onClick={onImageClick}>
                     <FontAwesomeIcon icon={faImages} size="1x"/>
                 </OriginalButton>
-                <OriginalButton variant={'outlined'}>
+                <OriginalButton variant={'outlined'} onClick={saveHandler}>
                     <FontAwesomeIcon icon={faSave} size="1x"/>
                 </OriginalButton>
             </div>

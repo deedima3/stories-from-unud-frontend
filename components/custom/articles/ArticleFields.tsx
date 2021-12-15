@@ -15,7 +15,7 @@ import '@draft-js-plugins/undo/lib/plugin.css';
 interface ArticleProps{
     className? : string;
     article : EditorState;
-    setArticle : React.Dispatch<React.SetStateAction<EditorState>>;
+    setArticle? : React.Dispatch<React.SetStateAction<EditorState>>;
     plugin? : any[];
     readOnly? : boolean;
 }
@@ -56,7 +56,7 @@ const ArticleFields = ({className, article, setArticle, plugin, readOnly=false} 
     ): DraftHandleValue => {
         const newState = RichUtils.handleKeyCommand(editorState, command);
 
-        if (newState) {
+        if (newState && setArticle) {
         setArticle(newState);
         return 'handled';
         }
@@ -71,7 +71,7 @@ const ArticleFields = ({className, article, setArticle, plugin, readOnly=false} 
   
     return (
         <section className={`${className}`}>
-            <article className="mx-auto border-2 shadow-md my-5 p-10 max-w-6xl">
+            <article className={`mx-auto ${readOnly ? "" : " border-2 shadow-md"} my-5 p-10 max-w-6xl`}>
                 <Editor
                     editorState={article}
                     onChange={setArticle}

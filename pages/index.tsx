@@ -1,5 +1,6 @@
 import { faComment } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Link from 'next/link'
 import React from 'react'
 import { ArrayArticle, Article } from '../apis/ArticleInterface'
 import BlogArticleApi from '../apis/BlogArticleApi'
@@ -19,10 +20,12 @@ const Index = ({ data } : ArrayArticle) => {
             <h1 className="text-blue-500 font-bold text-5xl font-Inter">Stories From Udayana</h1>
             <h6 className="text-gray-300 font-bold text-md font-Inter">Ceritakan apa saja tentang perkuliahan di Udayana</h6>
             <div className="">
+              <Link href="/new">
               <button className="mt-2 bg-blue-700 hover:bg-blue-800 text-white font-bold p-3 rounded-full text-sm flex flex-row items-center">
                 <FontAwesomeIcon icon={faComment} size="1x"/>
                   <p className="ml-2 font-Inter">Tulis Cerita Anda</p>
               </button>
+              </Link>
             </div>
           </div>
           <div className="md:block hidden" data-aos="fade-left">
@@ -40,8 +43,8 @@ const Index = ({ data } : ArrayArticle) => {
         <section className="mt-10" data-aos="fade-up">
           <SectionTitle title="Top Article" subtitle="Cerita-cerita paling menarik"/>
           <div className="grid lg:grid-cols-3 gap-8 md:grid-cols-1 mt-10" data-aos="fade-up">
-            {data && data.map(({title, imageUrl, article} : Article) => {
-              return (<BlogCard title={title} picture={imageUrl} desc={article} link="/"/>)
+            {data && data.map(({title, imageUrl, article, HashNumber} : Article) => {
+              return (<BlogCard title={title} picture={imageUrl} desc={article} link="/" HashNumber={HashNumber}/>)
             })}
           </div>
         </section>

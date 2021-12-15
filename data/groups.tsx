@@ -10,7 +10,7 @@ export const Anggota = [
     {
         "img" : "/jeremi.png",
         "nama" : "Jeremi Herodian Abednigo",
-        "nim" : "2008561057",
+        "nim" : "2008561042",
         "desc" : "Database manager penyuka loli kita",
         "ig" : "https://www.instagram.com/jrhero.a/",
         "github" : "https://github.com/Jrhero14"
