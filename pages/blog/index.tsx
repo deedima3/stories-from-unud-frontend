@@ -34,7 +34,7 @@ const Blog = () => {
         }else{
             setToAll()
         }
-    }, 2000, [search])
+    }, 500, [search])
     
     return (
         <Layout>
