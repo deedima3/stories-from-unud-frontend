@@ -23,7 +23,7 @@ const Blog = () => {
 
     const setToSearch = async () => {
         setLoading(true)
-        const data = await axios.get('api/search/?keyword=' + search)
+        const data = await axios.get('api/search/?keyword=' + search.replace(" ", "+"))
         setSearchResult(data.data)
         setLoading(false)
     }
