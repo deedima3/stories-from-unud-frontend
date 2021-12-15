@@ -9,10 +9,9 @@ import Loader from '../../components/custom/Loader/Loader'
 import Layout from '../../components/Layout/Layout'
 
 const Blog = () => {
-
     const [search, setSearch] = useState("")
     const [isLoading, setLoading] = useState(false)
-    const [searchResult, setSearchResult] = useState([])
+    const [searchResult, setSearchResult] = useState<Article[]>([])
     
     const setToAll = async () => {
         setLoading(true)
@@ -24,7 +23,11 @@ const Blog = () => {
     const setToSearch = async () => {
         setLoading(true)
         const data = await axios.get('api/search/?keyword=' + search.replace(" ", "+"))
-        setSearchResult(data.data)
+        if(data.data){
+            let result : Article[] = []
+            result.push(data.data)
+            setSearchResult(result)
+        }
         setLoading(false)
     }
 

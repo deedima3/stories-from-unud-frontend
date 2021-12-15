@@ -18,7 +18,7 @@ export default async (req : NextApiRequest, res : NextApiResponse) => {
                 res.status(200).json(response)
             }
             else{
-                res.status(400).json("Api Nya Salah ato Axiosnya response gaada")
+                res.status(200).json(response)
             }
         }
     }
