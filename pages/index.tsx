@@ -36,7 +36,7 @@ const Index = ({ data } : ArrayArticle) => {
           <SectionTitle title="Apa itu Stories From Unud?" subtitle="Apa dan tentang website kami"/>
           <div className="flex lg:flex-row items-center justify-between mt-10 w-full flex-col" data-aos="fade-up">
             {Info.map(({picture, title, description}) => {
-              return( <InfoBlock picture={picture} title={title} desc={description}/>)
+              return( <InfoBlock picture={picture} title={title} desc={description} key={title}/>)
             })}
           </div>
         </section>

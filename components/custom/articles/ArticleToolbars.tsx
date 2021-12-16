@@ -19,7 +19,7 @@ interface ArticleToolbarsProps{
 const ArticleToolbars = ({richTextHandler, blockTypeHandler, onImageClick, saveHandler} : ArticleToolbarsProps) => {
     return (
        <div className="">
-            <div className="flex flex-col shadow-md sticky z-50 top-40">
+            <div className="flex flex-col shadow-md sticky z-40 top-40">
                 <OriginalButton variant={'outlined'} onClick={blockTypeHandler('header-one')}>
                     <strong>H1</strong>
                 </OriginalButton>
