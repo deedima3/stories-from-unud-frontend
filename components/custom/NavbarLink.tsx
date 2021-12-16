@@ -13,7 +13,7 @@ const NavbarLink = ({path, text} : NavbarLinkProps) => {
         <button className="bg-blue-0 ml-10">
             <Link href={path}>
                 <div className="flex flex-col items-center">
-                    <h2 className={`text-gray-400 hover:text-blue-500 font-bold ${router.pathname === path ? "text-blue-400" : "text-gray-400"}`}>
+                    <h2 className={`text-gray-400 hover:text-blue-500 font-bold ${router.pathname === path ? "text-blue-400" : "text-gray-400 duration-500 transform transition hover:translate-y-2"}`}>
                         {text}
                     </h2>
                     <div className={`rounded-full h-2 w-2 ${router.pathname === path ? "bg-blue-500" : "bg-blue-0" }`}></div>

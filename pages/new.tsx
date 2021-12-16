@@ -53,8 +53,8 @@ const New = () => {
       };
 
       const handleSave = (e : React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => {
-          e.preventDefault()
           setLoading(true)
+          e.preventDefault()
           const data = {
             "title" : title,
             "imageUpload" : image,
@@ -65,15 +65,17 @@ const New = () => {
             axios.post('api/new', data)
             .then((response) => {
                 console.log(response)
+                setLoading(false)
             })
           }
           catch(e){
               console.log(e)
+              setLoading(false)
           }
-          setLoading(false)
       }
     
     return (
+      <>
         <Layout>
             <ArticleTitle 
             title={"Artikel Pertama"} 
@@ -97,10 +99,11 @@ const New = () => {
                     plugin={plugins}
                 />
             </div>
-            <Modals show={loading} onClose={() => setLoading(false)} isLoading>
-                    <Loader></Loader>
-            </Modals>
+        <Modals show={loading} onClose={() => setLoading(false)} isLoading>
+          <Loader></Loader>
+        </Modals>
         </Layout>
+      </>
     )
 }
 

@@ -49,7 +49,7 @@ const Login = () => {
             <Layout>
                 <section className="flex justify-center w-4/5 h-screen items-start mt-2" data-aos="fade-up">
                     <div className="flex justify-around w-full items-center">
-                        <img src="login.svg" alt="Login Picture" className="w-4/5 md:block hidden"/>
+                        <img src="login.svg" alt="Login Picture" className="transition transform duration-500 hover:scale-110 hover:translate-y+5 w-4/5 md:block hidden"/>
                         <div className="flex flex-col justify-center items-center bg-white shadow-md px-8 pt-8 mb-4 ml-3 w-full max-w-lg">
                             <SectionTitle title="Login" subtitle="Masukkan akun anda"/>
                             <form onSubmit={handleSubmit(pushData)}>
@@ -78,10 +78,10 @@ const Login = () => {
                                     {errors.password && <ErrorMessage error="Password is Required"/>}
                                 </div>
                                 <div className="flex items-center justify-around w-full mt-4 mb-8">
-                                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline md:text-lg text-xs" type="submit">
+                                    <button className="transition transform duration-500 hover:scale-110 hover:translate-y+5 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline md:text-lg text-xs" type="submit">
                                         Sign In
                                     </button>
-                                    <button className="border-blue-500 border-2 bg-white-50 text-blue-500 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline md:text-lg text-xs" type="button" onClick={() => reset()}>
+                                    <button className="transition transform duration-500 hover:scale-110 hover:translate-y+5 border-blue-500 border-2 bg-white-50 text-blue-500 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline md:text-lg text-xs" type="button" onClick={() => reset()}>
                                         Clear
                                     </button>
                                 </div>
