@@ -14,7 +14,23 @@ const ArticlePost = ({ response : { title, article, imageUrl, author,  dateTimeC
     const imagePlugin = createImagePlugin();
     const plugins = [imagePlugin]
 
-    const articleState = EditorState.createWithContent(convertFromRaw((JSON.parse(article))))
+    const checkValidJSON = () => {
+        try{
+            JSON.parse(article)
+            return true
+        }
+        catch(e){
+            return false
+        }
+    }
+
+    if(checkValidJSON()){
+        const articleState = EditorState.createWithContent(convertFromRaw((JSON.parse(article))))
+    }
+
+    const articleState = EditorState.createWithContent(ContentState.createFromText(article))
+
+    
 
 
     return (
