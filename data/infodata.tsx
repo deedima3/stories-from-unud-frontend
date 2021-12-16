@@ -12,6 +12,6 @@ export const Info = [
     {
         "picture" : "Frame 3.png",
         "title" : "Chat",
-        "description" : "Berkenalan dan berkomunikasi dengan sesama civitas UNUD"
+        "description" : "Mendapatkan berita terbaru dan terpercaya"
     }
 ]

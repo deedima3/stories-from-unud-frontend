@@ -7,7 +7,7 @@ interface Overlay {
 
 const ModalOverlay = ({children, darkAmount} : Overlay) => {
     return (
-        <div className={`absolute w-full h-full bg-gray-${darkAmount} top-0 left-0 flex justify-center items-center z-50 bg-opacity-40`}>
+        <div className={`absolute bottom-0 right-0 top-0 left-0 bg-gray-${darkAmount} flex justify-center items-center z-50 bg-opacity-40`}>
             {children}
         </div>
     )

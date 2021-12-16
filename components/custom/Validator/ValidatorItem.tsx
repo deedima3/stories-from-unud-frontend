@@ -10,13 +10,11 @@ interface ValidatorItemProps{
 
 const ValidatorItem = ({title, hashNumber, acceptHandler} : ValidatorItemProps) => {
     return (
-        <div className="flex w-full justify-between">
-            <p className="">{hashNumber}. {title}</p>
-            <div className="flex w-1/3">
-                <OriginalButton variant={'solid'} onClick={acceptHandler} data-hash={hashNumber} hashNumber={hashNumber}>
-                    Validate Article
-                </OriginalButton>
-            </div>
+        <div className="flex w-full justify-between items-center mt-5">
+            <p className="text-lg"><span className='font-bold'>{hashNumber}.</span> {title}</p>
+            <OriginalButton variant={'solid'} onClick={acceptHandler} data-hash={hashNumber} hashNumber={hashNumber}>
+                Validate Article
+            </OriginalButton>
         </div>
     )
 }

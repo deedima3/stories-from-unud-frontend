@@ -1,4 +1,5 @@
 import React, { useReducer } from 'react'
+import SectionTitle from '../SectionTitle'
 
 interface ValidationWrapperProps {
     children : JSX.Element
@@ -6,9 +7,11 @@ interface ValidationWrapperProps {
 
 const ValidatorWrapper = ({children} : ValidationWrapperProps) => {
     return (
-        <div className=''>
-            {children}
-        </div>
+        <>
+            <div className='w-full p-5 px-10'>
+                {children}
+            </div>
+        </>
     )
 }
 

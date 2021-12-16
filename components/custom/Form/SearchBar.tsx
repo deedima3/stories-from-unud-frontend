@@ -13,7 +13,7 @@ const SearchBar = ({setSearch, searchState} : SearchBarProps) => {
         setSearch(e.target.value)
     }
     return (
-        <div className='flex shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'>
+        <div className='transition transform duration-500 hover:scale-110 hover:translate-y+5 flex shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'>
             <input 
                 className="w-full focus:outline-none" 
                 id="passwords" 

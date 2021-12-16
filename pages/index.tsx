@@ -21,7 +21,7 @@ const Index = ({ data } : ArrayArticle) => {
             <h6 className="text-gray-300 font-bold text-md font-Inter">Ceritakan apa saja tentang perkuliahan di Udayana</h6>
             <div className="">
               <Link href="/new">
-              <button className="mt-2 bg-blue-700 hover:bg-blue-800 text-white font-bold p-3 rounded-full text-sm flex flex-row items-center">
+              <button className="transition transform duration-500 hover:scale-105 hover:translate-y+5 hover:shadow-2xl mt-2 bg-blue-700 hover:bg-blue-800 text-white font-bold p-3 rounded-full text-sm flex flex-row items-center">
                 <FontAwesomeIcon icon={faComment} size="1x"/>
                   <p className="ml-2 font-Inter">Tulis Cerita Anda</p>
               </button>
@@ -29,7 +29,7 @@ const Index = ({ data } : ArrayArticle) => {
             </div>
           </div>
           <div className="md:block hidden" data-aos="fade-left">
-            <img src="/headerPhoto.png" alt="Foto Unud" className="" />
+            <img src="/headerPhoto.png" alt="Foto Unud" className="transform duration-500 hover:scale-110 hover:-translate-x-5" />
           </div>
         </section>
         <section className="flex flex-col justify-between items-center mt-10 w-full" data-aos="fade-up">
