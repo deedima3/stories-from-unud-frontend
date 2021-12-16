@@ -10,6 +10,8 @@ import { useForm } from 'react-hook-form';
 import ArticleTitle from '../components/custom/articles/ArticleTitle';
 import ArticleToolbars from '../components/custom/articles/ArticleToolbars';
 import axios from 'axios';
+import Modals from '../components/custom/Modals/Modals';
+import Loader from '../components/custom/Loader/Loader';
 
 
 const New = () => {
@@ -20,12 +22,10 @@ const New = () => {
     const [title, setTitle] = useState("")
     const [author, setAuthor] = useState("")
     const [image, setImage] = useState("")
+    const [loading, setLoading] = useState(false)
 
     const {register, handleSubmit, setError, reset, formState : { errors }} = useForm()
 
-    const submitArticle = () => {
-
-    }
 
     const imagePlugin = createImagePlugin();
     const plugins = [imagePlugin]
@@ -54,10 +54,11 @@ const New = () => {
 
       const handleSave = (e : React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => {
           e.preventDefault()
+          setLoading(true)
           const data = {
             "title" : title,
             "imageUpload" : image,
-            "article" : article.getCurrentContent().getPlainText(),
+            "article" : JSON.stringify(convertToRaw(article.getCurrentContent())),
             "author" : author
           }
           try {
@@ -69,6 +70,7 @@ const New = () => {
           catch(e){
               console.log(e)
           }
+          setLoading(false)
       }
     
     return (
@@ -95,6 +97,9 @@ const New = () => {
                     plugin={plugins}
                 />
             </div>
+            <Modals show={loading} onClose={() => setLoading(false)} isLoading>
+                    <Loader></Loader>
+            </Modals>
         </Layout>
     )
 }

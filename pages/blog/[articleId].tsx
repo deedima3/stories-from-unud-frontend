@@ -20,7 +20,7 @@ const ArticlePost = ({ response : { title, article, imageUrl, author,  dateTimeC
     return (
         <Layout>
             <ArticleTitle 
-            title={"Artikel Pertama"} 
+            title={title} 
             image={imageUrl}
             className={'mt-8 w-full flex flex-col items-center'} 
             author={author}
