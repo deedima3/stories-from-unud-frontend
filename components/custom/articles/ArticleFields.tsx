@@ -70,7 +70,7 @@ const ArticleFields = ({className, article, setArticle, plugin, readOnly=false} 
     (plugin!).push(staticToolbarPlugin, undoPlugin)
   
     return (
-        <section className={`${className}`}>
+        <section className={`${className}`} data-aos="fade-up" data-aos-duration="3000">
             <article className={`mx-auto ${readOnly ? "" : " border-2 shadow-md"} my-5 p-10 max-w-6xl`}>
                 <Editor
                     editorState={article}

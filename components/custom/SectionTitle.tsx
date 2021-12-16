@@ -11,7 +11,7 @@ const SectionTitle = ({ title, subtitle } : SectionTitleProps) => {
             <h2 className="font-Inter text-blue-500 font-bold text-4xl">
                 {title}
             </h2>
-            <h3 className="font-Inter text-gray-300 font-normal text-lg">
+            <h3 className="font-Inter text-gray-400 font-normal text-lg">
                 {subtitle}
             </h3>
         </div>

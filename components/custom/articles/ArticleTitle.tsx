@@ -64,9 +64,9 @@ const ArticleTitle = ({image, title, className, readOnly=false, setTitle, setAut
     }
     
     return (
-        <section className={`${className} max-w-6xl`}>
+        <section className={`${className} max-w-6xl`} data-aos="fade-up">
             {readOnly ? 
-                    <h1 className="w-full h-10 text-5xl font-bold">
+                    <h1 className="w-full h-10 text-5xl font-bold ">
                     {title}
                 </h1>
             : 
@@ -82,7 +82,7 @@ const ArticleTitle = ({image, title, className, readOnly=false, setTitle, setAut
             }
             <DateAndAuthor date={date ? date : getDate()} author={author} setAuthor={setAuthor} readOnly={readOnly} />
             {image ? <div className="mt-12 w-full rounded-2xl overflow-hidden max-h-80 content-center">
-                <img className="object-fill w-full" src={image} alt={image} />
+                <img className="object-fill w-full transition transform duration-500 hover:scale-110" src={image} alt={image} />
             </div>
             : ""}
             {readOnly ? ""

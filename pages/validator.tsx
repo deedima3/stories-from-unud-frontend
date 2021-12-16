@@ -10,6 +10,7 @@ import axios from 'axios'
 import AdminApi from '../apis/AdminApi'
 import Router from 'next/router'
 import Loader from '../components/custom/Loader/Loader'
+import SectionTitle from '../components/custom/SectionTitle'
 
 const Validator = () => {
 
@@ -46,7 +47,8 @@ const Validator = () => {
 
     return (
         <Layout>
-            <section className='mt-8 w-full flex flex-col items-center'>
+            <SectionTitle title='Article Validator' subtitle='Untuk admin yang memastikan apakah artikel itu aman'/>
+            <section className='mt-8 w-full flex flex-col items-center bg-white shadow-md'>
                 {isLoading ? 
                     <div className="mt-8 w-full flex justify-center"> 
                         <Loader/> 
