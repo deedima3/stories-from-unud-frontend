@@ -50,7 +50,7 @@ export default {
 
     async createArticle(content : BlogPost){
         try{
-            const response = await axios.post('create/article', content, {headers : config})
+            const response = await axios.post('create/article/', content, {headers : config})
             return response.data
         }
         catch(e){
