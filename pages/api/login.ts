@@ -4,7 +4,7 @@ import { UserData } from '../../apis/UserData'
 import UserApi from "../../apis/UserApi"
 
 export default async (req : NextApiRequest, res : NextApiResponse) => {
-    if(req.method !== 'POST'){
+    if(req.method?.toLowerCase() !== 'post'){
         res.status(400).json("Request Bukan POST")
     }
     else{

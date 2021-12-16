@@ -10,9 +10,22 @@ export const config = {
     'token' : envConfig.ApiToken
 }
 
+export interface BlogPost{
+    title : string;
+    imageUpload : string;
+    article : string;
+    author : string;
+}
+
 export default {
     async getArticleById(articleId : string) {
-        let response: AxiosResponse | AxiosError<ApiErrorResponse>;
+        try{
+            const response = await axios.get(`blog-post/one-item/?HashNumber=${articleId}`, {headers : config})
+            return response.data
+        }catch(e){
+            console.log(e)
+            return false;
+        }
     },
     
     async getAllArticle(){
@@ -25,11 +38,24 @@ export default {
         }
     },
 
-    async searchArticle(searchKeyword : string, sortBy : string){
-        let response : AxiosResponse | AxiosError<ApiErrorResponse>;
+    async searchArticle(search : string){
+       try{
+           const response = await axios.get('search/?' + `keyword=${search}`, {headers : config})
+           return response.data
+       }catch(e){
+           console.log(e)
+           return false;
+       }
     },
 
-    async createArticle(){
-        let response : AxiosResponse | AxiosError<ApiErrorResponse>;
+    async createArticle(content : BlogPost){
+        try{
+            const response = await axios.post('create/article', content, {headers : config})
+            return response.data
+        }
+        catch(e){
+            console.log(e)
+            return false;
+        }
     }
 }

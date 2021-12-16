@@ -10,6 +10,11 @@
   },
   "dependencies": {
     "@chakra-ui/react": "^1.6.10",
+    "@draft-js-plugins/editor": "^4.1.0",
+    "@draft-js-plugins/image": "^4.1.2",
+    "@draft-js-plugins/side-toolbar": "^5.0.0",
+    "@draft-js-plugins/static-toolbar": "^4.1.2",
+    "@draft-js-plugins/undo": "^4.1.1",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
@@ -17,9 +22,12 @@
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "@fortawesome/react-fontawesome": "^0.1.16",
     "@types/aos": "^3.0.4",
+    "@types/draft-js": "^0.11.7",
     "aos": "^2.3.4",
     "axios": "^0.24.0",
+    "css-loader": "^6.5.1",
     "dotenv": "^10.0.0",
+    "draft-js": "^0.11.7",
     "draft-js-wysiwyg": "^1.2.1",
     "fontawesome": "^5.6.3",
     "framer-motion": "^4",
@@ -28,9 +36,9 @@
     "npm": "^8.1.4",
     "react": "17.0.2",
     "react-dom": "^17.0.2",
-    "react-draft-wysiwyg": "^1.14.7",
     "react-hook-form": "^7.20.5",
-    "react-use": "^17.3.1"
+    "react-use": "^17.3.1",
+    "style-loader": "^3.3.1"
   },
   "devDependencies": {
     "@types/react": "17.0.30",

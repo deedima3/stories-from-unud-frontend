@@ -1,24 +1,23 @@
 import { useEffect, useState } from "react";
 
-
-export function useLocalStorage (baseValue : any) {
+export function useLocalStorage (key : string, baseValue : any) {
     
-    const [user, setUser] = useState<string | null>(baseValue);
+    const [value, setValue] = useState<string | null>(baseValue);
 
-    const removeUser = () => {
-    setUser(null);
-    localStorage.removeItem("user");
+    const removeValue = () => {
+    setValue(null);
+    localStorage.removeItem(key);
     };
 
     useEffect(() => {
-        if (!user) return;
-        localStorage.setItem("user", user);
-    }, [user])
+        if (!value) return;
+        localStorage.setItem(key, value);
+    }, [value])
 
     useEffect(() => {
-    setUser(localStorage.getItem("user"));
+    setValue(localStorage.getItem(key));
     }, []);
     
-    return {user, setUser, removeUser}
+    return [value, setValue, removeValue] as const
 
 }

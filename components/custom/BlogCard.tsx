@@ -1,13 +1,15 @@
+import Link from 'next/link';
 import React from 'react'
 
 interface BlogCardProps{
+    HashNumber : number;
     title : string;
     picture : string;
     desc : string;
     link : string;
 }
 
-const BlogCard = ({title, desc, picture, link} : BlogCardProps) => {
+const BlogCard = ({title, desc, picture, link, HashNumber} : BlogCardProps) => {
     var desc = desc.substring(0, 200);
     desc = `${desc}...`
     return (
@@ -20,9 +22,11 @@ const BlogCard = ({title, desc, picture, link} : BlogCardProps) => {
                 {desc}
             </p>
             <div className="mb-2">
-                <button className="mt-4 bg-blue-700 hover:bg-blue-800 text-white font-bold p-3 rounded-full text-xs flex flex-row items-center">
-                    <p className="ml-2 font-Inter">Lihat Lanjutannya</p>
-                </button>
+                <Link href={"blog/" + HashNumber}>
+                    <button className="mt-4 bg-blue-700 hover:bg-blue-800 text-white font-bold p-3 rounded-full text-xs flex flex-row items-center">
+                        <p className="ml-2 font-Inter">Lihat Lanjutannya</p>
+                    </button>
+                </Link>
             </div>
         </div>
     )
