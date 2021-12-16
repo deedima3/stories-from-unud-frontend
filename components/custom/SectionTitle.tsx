@@ -1,12 +1,17 @@
 import React from 'react'
 
-const SectionTitle : React.FC<{ title : string, subtitle : string}> = ({ title, subtitle }) => {
+interface SectionTitleProps{
+    title : string;
+    subtitle : string;
+}
+
+const SectionTitle = ({ title, subtitle } : SectionTitleProps) => {
     return (
-        <div>
-            <h2 className="font-Inter text-blue-500">
+        <div className="text-center mt-10">
+            <h2 className="font-Inter text-blue-500 font-bold text-4xl">
                 {title}
             </h2>
-            <h3 className="font-Inter text-grey-400">
+            <h3 className="font-Inter text-gray-300 font-normal text-lg">
                 {subtitle}
             </h3>
         </div>

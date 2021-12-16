@@ -12,4 +12,12 @@ module.exports = {
     extend: {},
   },
   plugins: [],
+  module: {
+    loaders: [
+      {
+        test: /plugin\.css$/,
+        loaders: ['style-loader', 'css'],
+      },
+    ],
+  },
 }

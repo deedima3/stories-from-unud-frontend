@@ -1,17 +1,17 @@
 export const Info = [
     {
         "picture" : "treasure.png",
-        "title" : "ini judul gan",
-        "description" : "ini deskripsi gan"
+        "title" : "Anonymous",
+        "description" : "Tidak ada tracking nama dan identitas."
     },
     {
-        "picture" : "treasure.png",
-        "title" : "ini judul gan",
-        "description" : "ini deskripsi gan"
+        "picture" : "Frame 2.png",
+        "title" : "Everyone",
+        "description" : "Siapa saja dapat membuat membuat post"
     },
     {
-        "picture" : "treasure.png",
-        "title" : "ini judul gan",
-        "description" : "ini deskripsi gan"
+        "picture" : "Frame 3.png",
+        "title" : "Chat",
+        "description" : "Berkenalan dan berkomunikasi dengan sesama civitas UNUD"
     }
 ]

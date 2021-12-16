@@ -9,11 +9,11 @@ export const Anggota = [
     },
     {
         "img" : "/jeremi.png",
-        "nama" : "Gede Sudimahendra",
-        "nim" : "2008561057",
-        "desc" : "Bocah penyuka kocheng yang wibu",
-        "ig" : "https://www.instagram.com/deedima3/?hl=en",
-        "github" : "https://github.com/deedima3?tab=repositories"
+        "nama" : "Jeremi Herodian Abednigo",
+        "nim" : "2008561042",
+        "desc" : "Database manager penyuka loli kita",
+        "ig" : "https://www.instagram.com/jrhero.a/",
+        "github" : "https://github.com/Jrhero14"
     },
     {
         "img" : "/bianca.png",

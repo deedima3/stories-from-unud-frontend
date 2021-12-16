@@ -3,15 +3,18 @@ import myTheme from "../components/Themes/theme"
 import AOS from 'aos'
 import "aos/dist/aos.css"
 import 'tailwindcss/tailwind.css'
-import React, { useEffect } from 'react'
+import React, { createContext, useContext, useEffect, useState } from 'react'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import { faCheckSquare, faCoffee, faCommentAlt } from '@fortawesome/free-solid-svg-icons'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
+import UserProvider from "../lib/context/UserProvider"
+import Head from 'next/head'
 
 library.add(fab, faCheckSquare, faCoffee, faGithub, faCommentAlt)
 
 function MyApp({ Component, pageProps }: AppProps) {
+
   
   useEffect(() => {
     AOS.init({ duration: 2000 });
@@ -20,7 +23,13 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, [])
 
   return (
-    <Component {...pageProps} />
+    <UserProvider>
+      <Head >
+            <title>Stories From Udayana</title>
+        </Head>
+      <Component {...pageProps} />
+    </UserProvider>
+      
   )
 }
 
