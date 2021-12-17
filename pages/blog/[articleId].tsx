@@ -10,8 +10,6 @@ import { useRouter } from 'next/router'
 
 const ArticlePost = ({ response : { title, article, imageUrl, author,  dateTimeCreated, visitor} } : any) => {
 
-    console.log(title)
-
     const router = useRouter()
 
     // If the page is not yet generated, this will be displayed
@@ -51,16 +49,16 @@ const ArticlePost = ({ response : { title, article, imageUrl, author,  dateTimeC
     return (
         <Layout>
             <ArticleTitle 
-            title={title} 
-            image={imageUrl}
+            title={title!} 
+            image={imageUrl!}
             className={'mt-8 w-full flex flex-col items-center'} 
-            author={author}
+            author={author!}
             readOnly
             />
             <ArticleFields
                     className="mt-8 w-full"
-                    article={articleState}
-                    plugin={plugins}
+                    article={articleState!}
+                    plugin={plugins!}
                     readOnly
                 />
         </Layout>
