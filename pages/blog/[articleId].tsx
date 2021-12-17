@@ -7,20 +7,18 @@ import { Article } from '../../apis/ArticleInterface';
 import { EditorState, convertFromRaw, RichUtils, convertToRaw, ContentState} from 'draft-js';
 import BlogArticleApi from '../../apis/BlogArticleApi';
 import { useRouter } from 'next/router'
+import Loader from '../../components/custom/Loader/Loader';
 
 const ArticlePost = ({ response : { title, article, imageUrl, author,  dateTimeCreated, visitor} } : any) => {
 
     const router = useRouter()
 
-    // If the page is not yet generated, this will be displayed
-    // initially until getStaticProps() finishes running
-    if (router.isFallback) {
-        return <div>Loading...</div>
-    }
-
     // Render post...
     if (router.isFallback) {
-        return <div>Loading...</div>
+        return (
+            <Layout>
+                <Loader/>
+            </Layout>)
     }
 
     const imagePlugin = createImagePlugin();
@@ -68,6 +66,11 @@ const ArticlePost = ({ response : { title, article, imageUrl, author,  dateTimeC
 export async function getStaticProps({ params } : any){
 
     const response = await BlogArticleApi.getArticleById(params.articleId)
+    if(!response.response){
+        return {
+            notFound : true,
+        }
+    }
     return{
         props : { response },
         revalidate : 30
