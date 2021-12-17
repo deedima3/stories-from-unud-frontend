@@ -71,7 +71,11 @@ export async function getStaticPaths(){
         return {params : {articleId : article.HashNumber.toString()}}
     })
 
-    return { paths, fallback : false}
+    return { 
+        paths, 
+        fallback : false, 
+        revalidate : 30
+    }
 }
 
 export default ArticlePost
