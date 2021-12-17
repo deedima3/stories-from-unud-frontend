@@ -10,9 +10,7 @@ export default async (req : NextApiRequest, res : NextApiResponse) => {
         console.log(req.headers)
         try{
             const response = await AdminApi.validateOkay(req.body.body.hash!, req.headers.sessionid!)
-            if(response){
-                res.status(200).json(response)
-            }
+            res.status(200).json(response)
         }
         catch(e){
             console.log(e)

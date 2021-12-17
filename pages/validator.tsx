@@ -27,6 +27,10 @@ const Validator = () => {
         }}, {headers : {
             sessionID :  user!
         }})
+        const data = await axios.get('/api/getAllAdmin', {headers : {
+            sessionID :  user!
+        }})
+        setAdminArticle(data.data)
         setLoading(false)
     }
 
