@@ -47,16 +47,16 @@ const ArticlePost = ({ response : { title, article, imageUrl, author,  dateTimeC
     return (
         <Layout>
             <ArticleTitle 
-            title={title!} 
-            image={imageUrl!}
+            title={title} 
+            image={imageUrl}
             className={'mt-8 w-full flex flex-col items-center'} 
-            author={author!}
+            author={author}
             readOnly
             />
             <ArticleFields
                     className="mt-8 w-full"
-                    article={articleState!}
-                    plugin={plugins!}
+                    article={articleState}
+                    plugin={plugins}
                     readOnly
                 />
         </Layout>
@@ -66,14 +66,10 @@ const ArticlePost = ({ response : { title, article, imageUrl, author,  dateTimeC
 export async function getStaticProps({ params } : any){
 
     const response = await BlogArticleApi.getArticleById(params.articleId)
-    if(!response.response){
-        return {
-            notFound : true,
-        }
-    }
+
     return{
         props : { response },
-        revalidate : 30
+        revalidate : 1,
     }
 }
 
@@ -87,7 +83,7 @@ export async function getStaticPaths(){
 
     return { 
         paths, 
-        fallback : true, 
+        fallback : "blocking", 
     }
 }
 
