@@ -6,10 +6,24 @@ import createImagePlugin from '@draft-js-plugins/image';
 import { Article } from '../../apis/ArticleInterface';
 import { EditorState, convertFromRaw, RichUtils, convertToRaw, ContentState} from 'draft-js';
 import BlogArticleApi from '../../apis/BlogArticleApi';
+import { useRouter } from 'next/router'
 
 const ArticlePost = ({ response : { title, article, imageUrl, author,  dateTimeCreated, visitor} } : any) => {
 
     console.log(title)
+
+    const router = useRouter()
+
+    // If the page is not yet generated, this will be displayed
+    // initially until getStaticProps() finishes running
+    if (router.isFallback) {
+        return <div>Loading...</div>
+    }
+
+    // Render post...
+    if (router.isFallback) {
+        return <div>Loading...</div>
+    }
 
     const imagePlugin = createImagePlugin();
     const plugins = [imagePlugin]
@@ -33,7 +47,6 @@ const ArticlePost = ({ response : { title, article, imageUrl, author,  dateTimeC
     }
 
     
-
 
     return (
         <Layout>
@@ -73,8 +86,7 @@ export async function getStaticPaths(){
 
     return { 
         paths, 
-        fallback : false, 
-        revalidate : 30
+        fallback : true, 
     }
 }
 
